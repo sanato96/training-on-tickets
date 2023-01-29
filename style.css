@@ -14,3 +14,14 @@
   /*background-color: red;*/
 }
 
+@media (max-width: 480px) {
+  .image-container {
+    width: 100%;
+  }
+  #task-image {
+    width: 100%;
+  }
+  #highlighted-element {
+    width: 10px;
+    height: 10px;
+  }
