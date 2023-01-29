@@ -44,6 +44,7 @@ const tasks = [
 ];
 
 let currentTaskIndex = 0;
+let startTime = Date.now();
 
 // Set the position of the highlighted element for the current task
 
@@ -58,12 +59,22 @@ highlightedElement.addEventListener('click', function() {
   new Toast({
             title: false,
             text: 'Верно.',
-            theme: 'success',
+            theme: 'info',
             autohide: true,
             interval: 1500
           });
 
   currentTaskIndex = (currentTaskIndex + 1) % tasks.length;
+  if (currentTaskIndex === 0) {
+    const elapsedTime = Math.ceil((Date.now() - startTime) / 1000);
+    new Toast({
+            title: false,
+            text: `Справились за ${elapsedTime}с.`,
+            theme: 'success',
+            autohide: true,
+            interval: 7500
+          });
+  }
   image.src = tasks[currentTaskIndex].image;
   highlightedElement.style.top = `${image.offsetTop + (image.offsetHeight * tasks[currentTaskIndex].position.y)}px`;
   highlightedElement.style.left = `${image.offsetLeft + (image.offsetWidth * tasks[currentTaskIndex].position.x)}px`;
