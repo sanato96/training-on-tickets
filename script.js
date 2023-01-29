@@ -2,6 +2,7 @@ const image = document.querySelector('#task-image');
 const highlightedElement = document.querySelector('#highlighted-element');
 const heading = document.querySelector('h1');
 
+
 // List of tasks
 const tasks = [
   {
@@ -54,7 +55,13 @@ heading.textContent = tasks[currentTaskIndex].task;
 
 highlightedElement.addEventListener('click', function() {
   // change the task to another one
-  alert("Отлично!");
+  new Toast({
+            title: false,
+            text: 'Верно.',
+            theme: 'success',
+            autohide: true,
+            interval: 1500
+          });
 
   currentTaskIndex = (currentTaskIndex + 1) % tasks.length;
   image.src = tasks[currentTaskIndex].image;
