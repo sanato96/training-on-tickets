@@ -1,0 +1,16 @@
+.container {
+  text-align: center;
+}
+
+.image-container {
+  display: inline-block;
+  position: relative;
+}
+
+#highlighted-element {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /*background-color: red;*/
+}
+
